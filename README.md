@@ -99,6 +99,20 @@ NSLocalizedStringWithDefaultValue(<#key#>, <#tbl#>, <#bundle#>, <#val#>, <#comme
 1、项目中目前的需求是根据系统语言进行app语言的切换，因此可以考虑这部分内容加入到后门中，如果后门没有打开语言切换，那么功能与现在一样。如果后门打开语言切换，那么项目根据切换的语言动态处理。
 ![改进](https://github.com/ssrrxx111/cvI18n/blob/master/asstes/%E8%AF%AD%E8%A8%80%E5%88%87%E6%8D%A2%E5%A4%84%E7%90%86.png)
 
+###更多
+1、通过这种获取自身的方式，在做自动布局或者设置界面属性的时候，可以使用统一的标识，如：
+~~~
+[self.tipsLabel customize:^(UILabel label) {
+ label.text = @"";
+ label.textColor= UIColor.red;
+ label...
+}];
+~~~
+之后在编码处理的时候，对于相同的ui设置，可以直接复制粘贴。
+
+2、同样的，对于界面主题的切换，界面字体大小的切换，都可以采用这种方式处理
+
+
 ###Demo地址
 https://github.com/ssrrxx111/cvI18n
 
