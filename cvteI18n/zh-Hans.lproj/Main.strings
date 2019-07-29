@@ -1,0 +1,11 @@
+
+/* Class = "UIViewController"; title = "国际化"; ObjectID = "15d-Od-VoQ"; */
+"15d-Od-VoQ.title" = "国际化";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "7E6-hU-fom"; */
+"7E6-hU-fom.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pKQ-dM-SZB"; */
+"pKQ-dM-SZB.text" = "Label";
+
+"cvte.text.test" = "中文测试";

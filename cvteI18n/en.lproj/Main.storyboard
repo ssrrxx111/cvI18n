@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jSA-RI-mxl">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--修改国际化语言-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <pickerView contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3I7-nC-MTG">
+                                <rect key="frame" x="47" y="203" width="320" height="119"/>
+                            </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lIn-kI-6ik">
+                                <rect key="frame" x="20" y="440" width="374" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="vdF-ba-5Fq"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="3I7-nC-MTG" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="47" id="0UL-mK-Vs6"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="lIn-kI-6ik" secondAttribute="trailing" constant="20" id="2cj-El-esi"/>
+                            <constraint firstItem="lIn-kI-6ik" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="STc-PY-L7s"/>
+                            <constraint firstItem="3I7-nC-MTG" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="115" id="WuN-n6-o6w"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="3I7-nC-MTG" secondAttribute="trailing" constant="47" id="X9v-yk-FLZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lIn-kI-6ik" secondAttribute="bottom" constant="401" id="cck-Lu-XCZ"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="lIn-kI-6ik" secondAttribute="bottom" constant="401" id="yz1-4l-uJQ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="修改国际化语言" id="beg-x0-hfU">
+                        <barButtonItem key="rightBarButtonItem" title="Page 3" id="cls-VZ-Cal">
+                            <connections>
+                                <segue destination="Jvo-ns-bXM" kind="show" id="MwB-SB-lM9"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="i18nLabel" destination="lIn-kI-6ik" id="AAn-uF-oBS"/>
+                        <outlet property="pickerView" destination="3I7-nC-MTG" id="Ysh-oQ-SyM"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1280" y="96"/>
+        </scene>
+        <!--国际化-->
+        <scene sceneID="UEG-eL-by8">
+            <objects>
+                <viewController id="3rb-5o-3YI" customClass="FirstViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="UcI-XG-5NI">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="动态国际化处理" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQl-qk-FaX">
+                                <rect key="frame" x="20" y="288" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZBf-VF-ZJH">
+                                <rect key="frame" x="169" y="400" width="77" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="设置国际化"/>
+                                <connections>
+                                    <segue destination="BYZ-38-t0r" kind="show" id="D9e-Vb-Oy0"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JQl-qk-FaX" firstAttribute="leading" secondItem="CKf-r6-n7D" secondAttribute="leading" constant="20" id="Qkx-LS-iA0"/>
+                            <constraint firstItem="CKf-r6-n7D" firstAttribute="trailing" secondItem="JQl-qk-FaX" secondAttribute="trailing" constant="20" id="Ycg-TL-h45"/>
+                            <constraint firstItem="JQl-qk-FaX" firstAttribute="top" secondItem="CKf-r6-n7D" secondAttribute="top" constant="200" id="sfx-wV-f3v"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="CKf-r6-n7D"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="国际化" id="lCa-rV-3s8"/>
+                    <connections>
+                        <outlet property="i18nLabel" destination="JQl-qk-FaX" id="Dy0-2Q-Rhu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="47H-En-tdX" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="506" y="96"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="ibF-Yf-nHh">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="jSA-RI-mxl" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wbV-Z1-wde">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="3rb-5o-3YI" kind="relationship" relationship="rootViewController" id="10v-g7-GR4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6pv-3V-nMG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-262.31884057971018" y="95.758928571428569"/>
+        </scene>
+        <!--国际化测试3-->
+        <scene sceneID="EX3-kY-bgw">
+            <objects>
+                <viewController id="Jvo-ns-bXM" customClass="Page3ViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="wZ8-9K-dQ1">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="H1O-6g-4Z1">
+                                <rect key="frame" x="20" y="352" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="H1O-6g-4Z1" firstAttribute="leading" secondItem="xfG-iC-FYz" secondAttribute="leading" constant="20" id="3jl-ex-2F1"/>
+                            <constraint firstItem="xfG-iC-FYz" firstAttribute="trailing" secondItem="H1O-6g-4Z1" secondAttribute="trailing" constant="20" id="gZ8-1z-hgQ"/>
+                            <constraint firstItem="H1O-6g-4Z1" firstAttribute="top" secondItem="xfG-iC-FYz" secondAttribute="top" constant="264" id="uRE-wt-yC6"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="xfG-iC-FYz"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="国际化测试3" id="Mey-4s-oLD"/>
+                    <connections>
+                        <outlet property="i18nLabel" destination="H1O-6g-4Z1" id="gGi-bW-Yfa"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yha-5q-RhW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1997" y="96"/>
+        </scene>
+    </scenes>
+</document>

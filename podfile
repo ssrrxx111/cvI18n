@@ -1,0 +1,6 @@
+platform :ios, '9.0'
+use_frameworks!
+
+target 'cvteI18n' do
+  pod 'MLeaksFinder'
+end

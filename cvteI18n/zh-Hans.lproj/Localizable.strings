@@ -1,0 +1,10 @@
+/* 
+  Locolizable.strings
+  cvteI18n
+
+  Created by webull on 2019/7/26.
+  Copyright © 2019 cvte. All rights reserved.
+*/
+"cvte.text.test" = "中文测试 %1$@ 另一个参数 %2$@";
+"cvte.first.test" = "首页国际化";
+"cvte.text.page3" = "第三个页面国际化";
