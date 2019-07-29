@@ -9,6 +9,8 @@
 #ifndef XWMicroHeader_h
 #define XWMicroHeader_h
 
+#define L(Languagekey, ...) [[I18nManager shareInstance] localized:Languagekey, ##__VA_ARGS__]
+
 #define XWLog(format, ...) do {                                                                          \
 fprintf(stderr, "<%s : %d> %s\n",                                           \
 [[[NSString stringWithUTF8String:__FILE__] lastPathComponent] UTF8String],  \

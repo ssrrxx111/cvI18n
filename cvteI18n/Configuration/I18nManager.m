@@ -37,13 +37,12 @@ static I18nManager *_instance = nil;
     }
 }
 
+// 1、获取app所有支持的语言信息
+// 2、选择对应的语言和locale
+// 3、修改locale对应语言文件
+// 4、获取国际化数据
+// zh-Hans/ en
 - (NSString *)localized: (NSString *)identifier, ... {
-    // 1、获取app所有支持的语言信息
-    // 2、选择对应的语言和locale
-    // 3、修改locale对应语言文件
-    // 4、获取国际化数据
-    // zh-Hans/ en
-    
     self.currentLanguage = self.languageDic.allKeys[self.index];
     
     NSBundle *bundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:self.currentLanguage ofType:@"lproj"]];

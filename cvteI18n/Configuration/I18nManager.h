@@ -9,8 +9,6 @@
 
 #import <Foundation/Foundation.h>
 
-#define L(Languagekey, ...) [[I18nManager shareInstance] localized:Languagekey, ##__VA_ARGS__]
-
 NS_ASSUME_NONNULL_BEGIN
 
 @interface I18nManager : NSObject
