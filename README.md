@@ -28,7 +28,8 @@ iOS应用内切换语言重启应用对用户体验比较差，我们可以尝�
 1、使用runtime为每个需要需要国际化的控件新增一个对象属性，对象属性中包含了控件本身和执行国际化的block 
 2、切换语言的时候发出通知，控件新增的对象中监听通知，执行国际化block 
 
-原理图如下所示：
+相关文件如下所示：
+![国际化](https://github.com/ssrrxx111/cvI18n/blob/master/asstes/%E5%9B%BD%E9%99%85%E5%8C%96.jpg)
 
 ###注意事项
 1、国际化文件要通过bundle方式获取
@@ -96,7 +97,7 @@ NSLocalizedStringWithDefaultValue(<#key#>, <#tbl#>, <#bundle#>, <#val#>, <#comme
 
 ###需要改进
 1、项目中目前的需求是根据系统语言进行app语言的切换，因此可以考虑这部分内容加入到后门中，如果后门没有打开语言切换，那么功能与现在一样。如果后门打开语言切换，那么项目根据切换的语言动态处理。
-
+![改进](https://github.com/ssrrxx111/cvI18n/blob/master/asstes/%E8%AF%AD%E8%A8%80%E5%88%87%E6%8D%A2%E5%A4%84%E7%90%86.png)
 
 ###Demo地址
 https://github.com/ssrrxx111/cvI18n
