@@ -49,7 +49,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    maxInputCount = 10;
+    maxInputCount = 10 * 2;
     _unsupporttedWords = @[@"敏感词", @"废青"];
     
     self.textView.delegate = self;
@@ -130,7 +130,7 @@
  
     // 统计文本长度
     NSInteger length = [self bytesCountByIgnoreCharacter:textView.text];
-    self.countLabel.text = [NSString stringWithFormat:@"文本长度: %@", @(length)];
+    self.countLabel.text = [NSString stringWithFormat:@"文本长度: %@", @(ceil(length / 2.0))];
 }
 
 
@@ -152,7 +152,7 @@
             count += 2;
         }
     }
-    return ceil(count / 2.0);
+    return count;
 }
 
 // 获取限定字符长度的字符串
@@ -177,10 +177,10 @@
             count += 2;
         }
         
-        NSInteger result = ceil(count / 2.0);
+//        NSInteger result = ceil(count / 2.0);
         
         // 结果超出，不加入
-        if (result > max) {
+        if (count > max) {
             return [mutableString copy];
         }
         
@@ -212,9 +212,9 @@
             count += 2;
         }
         
-        NSInteger result = ceil(count / 2.0);
+//        NSInteger result = ceil(count / 2.0);
         
-        if (result > max) {
+        if (count > max) {
             cutIndex = i;
             break;
         }
