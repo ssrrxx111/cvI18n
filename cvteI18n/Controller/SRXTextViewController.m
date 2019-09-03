@@ -62,15 +62,23 @@
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text {
     //    self.inputView.inputTipLabel.hidden = self.textView.text.length > 0;
     
-    // TODO: SRX处理文本变色
+    // 输入是否含有表情
     if ([self matchRegular:text]) {
+        
+        // 得到过滤表情之后的文本
         NSString *supportted = [self supporttedString:text];
+        
+        // 如果只有表情，不让输入
         if ([supportted isEqualToString:@""]) {
             return NO;
         } else {
-            NSMutableAttributedString *pre = [self.textView.attributedText mutableCopy];
-            //            textView.text = [pre stringByReplacingCharactersInRange:range withString: supportted];
             
+            // 过滤表情之后的文本，可能含有自带输入法的markedText
+            NSMutableAttributedString *pre = [self.textView.attributedText mutableCopy];
+            
+            // TODO: SRX 在这里计算需要替换的文本，拿到可以替换的文本长度
+            
+            // 代替换位置长度大于0，替换，否则插入
             if (range.length > 0) {
                 [pre replaceCharactersInRange:range withAttributedString:[[NSAttributedString alloc] initWithString:supportted attributes:self.normalAttr] ];
             } else {
@@ -78,38 +86,14 @@
             }
             
             textView.attributedText = [pre copy];
-            
-            
-            
-            
-            //            NSInteger position = textView.selectedRange.location;
-            
-            //            if (range.length > 0) {
-            //
-            //                [self.finalAttributedString addAttributes:self.normalAttr range:range];
-            //            } else {
-            //                [self.finalAttributedString insertAttributedString:[[NSAttributedString alloc] initWithString:supportted attributes:self.normalAttr] atIndex:range.location];
-            //            }
-            
-            
-            
-            
-            
-            
-            // 判断文本长度
-            //            NSInteger length = [self bytesCountByIgnoreCharacter:textView.text];
-            //            NSLog(@"文本长度: %ld", (long)length);
-            //            // 计算还可以输入的字符
-            //            NSString *resultString = [self resultStringBySubstring:textView.text preLength:length maxLenght:maxInputCount];
-            //            self.textView.attributedText = [[NSAttributedString alloc] initWithString: resultString attributes:self.normalAttr];
-            //            // 恢复光标位置
-            //            textView.selectedRange = NSMakeRange(position, 0);
+           
             return NO;
         }
     }
     
+    
+    // 这里拿到剩余可以替换的文本长度，然后进行替换
     NSMutableAttributedString *pre = [self.textView.attributedText mutableCopy];
-    //            textView.text = [pre stringByReplacingCharactersInRange:range withString: supportted];
     
     if (range.length > 0) {
         [pre replaceCharactersInRange:range withAttributedString:[[NSAttributedString alloc] initWithString:text attributes:self.normalAttr] ];
@@ -118,74 +102,35 @@
     }
     self.finalAttributedString = pre;
     
-    //    textView.attributedText = [pre copy];
-    
-    
-    // 1、判断是插入还是替换，根据range的长度
-    // 2、先去除replacement字符串的不符合的字符，然后加入
-    // 3、加入完成之后做截断处理，截断处理在didChange中进行
-    
-    
-    //    NSMutableAttributedString *pre = [self.textView.attributedText mutableCopy];
-    //
-    //    [pre insertAttributedString:[[NSAttributedString alloc] initWithString:text attributes:self.normalAttr] atIndex:textView.selectedRange.location];
-    //
-    //    textView.attributedText = [pre copy];
-    
-    
-    // 处理attributedString
-    NSLog(@"preString: %@, replaceMentText: %@, self.inputView.textView.text: %@", textView.text, text, self.textView.text);
-    
     return YES;
     
 }
 
 - (void)textViewDidChange:(UITextView *)textView {
     
+    // 获取光标位置
     NSInteger position = textView.selectedRange.location;
     
+    // markedText不做处理
     UITextRange *selectedRange = [textView markedTextRange];
     UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
-    
     if (selectedRange != nil && pos != nil) {
         return;
     }
     
-//    textView.attributedText = self.finalAttributedString;
+    // 获取当前文本长度
     NSInteger preLength = [self bytesCountByIgnoreCharacter:self.finalAttributedString.string];
-    textView.attributedText = [self resultAttributedStringBySubstring:self.finalAttributedString preLength:preLength maxLenght:maxInputCount];
+    // 截断文本到指定长度
+    textView.attributedText = [self finalStringWith:self.finalAttributedString preLength:preLength maxLenght:maxInputCount];
     
     NSLog(@"cur: %@, text2: %@", textView.text, self.textView.text);
     
+    // 恢复光标位置
     textView.selectedRange = NSMakeRange(position, 0);
-    
-    
-    // 需要获取外部文本框内容
-    //    self.inputView.inputTipLabel.hidden = self.inputView.textView.text.length > 0;
-    
-    //    UITextRange *selectedRange = [textView markedTextRange];
-    //    UITextPosition *pos = [textView positionFromPosition:selectedRange.start offset:0];
-    //
-    //    if (selectedRange != nil && pos != nil) {
-    //        return;
-    //    }
-    //
-    
-    //
-    //    // 判断文本长度
+ 
+    // 统计文本长度
     NSInteger length = [self bytesCountByIgnoreCharacter:textView.text];
     self.countLabel.text = [NSString stringWithFormat:@"文本长度: %@", @(length)];
-    NSLog(@"文本长度: %ld", (long)length);
-    //
-    //    // 计算还可以输入的字符
-    //    NSString *resultString = [self resultStringBySubstring:textView.text preLength:length maxLenght:maxInputCount];
-    //    self.textView.attributedText = [[NSAttributedString alloc] initWithString: resultString attributes:self.normalAttr];
-    //
-    //    textViewString = resultString;
-    //
-    //    // 恢复光标位置
-    
-    
 }
 
 
@@ -246,14 +191,13 @@
 }
 
 
-- (NSMutableAttributedString *)resultAttributedStringBySubstring:(NSMutableAttributedString *)origin preLength:(NSInteger) preLength maxLenght: (NSInteger)max {
+- (NSAttributedString *)finalStringWith:(NSMutableAttributedString *)origin preLength:(NSInteger) preLength maxLenght: (NSInteger)max {
     
     if (preLength <= max) {
         return origin;
     }
     
     NSInteger count = 0;
-    NSMutableAttributedString *mutableString = [origin mutableCopy];
     NSInteger cutIndex = 0;
     for (NSInteger i = 0; i < origin.length; i++) {
         NSString *characterString = [origin.string substringWithRange:NSMakeRange(i, 1)];
@@ -274,13 +218,10 @@
             cutIndex = i;
             break;
         }
-        
       
     }
     
-    return [[origin attributedSubstringFromRange:NSMakeRange(0, cutIndex)] mutableCopy];
-    
-//    return [mutableString copy];
+    return [[origin attributedSubstringFromRange:NSMakeRange(0, cutIndex)] copy];
 }
 
 
