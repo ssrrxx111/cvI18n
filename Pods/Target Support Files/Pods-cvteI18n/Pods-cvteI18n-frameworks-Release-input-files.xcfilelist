@@ -1,0 +1,5 @@
+${PODS_ROOT}/Target Support Files/Pods-cvteI18n/Pods-cvteI18n-frameworks.sh
+${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework
+${BUILT_PRODUCTS_DIR}/I18nDemo/I18nDemo.framework
+${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework
+${BUILT_PRODUCTS_DIR}/Toast/Toast.framework

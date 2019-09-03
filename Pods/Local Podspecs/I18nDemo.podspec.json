@@ -1,0 +1,22 @@
+{
+  "name": "I18nDemo",
+  "version": "0.1.0",
+  "summary": "A test Demo",
+  "description": "TODO: Add long description of the pod here.",
+  "homepage": "https://github.com/ssrrxx111/I18NDemo",
+  "license": {
+    "type": "MIT",
+    "file": "LICENSE"
+  },
+  "authors": {
+    "ssrrxx111": "737333500@qq.com"
+  },
+  "source": {
+    "git": "https://github.com/ssrrxx111/I18NDemo.git",
+    "tag": "0.1.0"
+  },
+  "platforms": {
+    "ios": "8.0"
+  },
+  "source_files": "I18nDemo/Classes/**/*"
+}

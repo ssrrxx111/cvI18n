@@ -1,0 +1,6 @@
+framework module I18nDemo {
+  umbrella header "I18nDemo-umbrella.h"
+
+  export *
+  module * { export * }
+}

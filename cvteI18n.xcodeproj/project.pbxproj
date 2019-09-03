@@ -3,13 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		25381B032D981C05B839395C /* Pods_cvteI18n.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 03947A7C0B7A0C658CFAB721 /* Pods_cvteI18n.framework */; };
 		3E70604122EEDD6100DE5226 /* Page3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E70604022EEDD6100DE5226 /* Page3ViewController.m */; };
 		3E981E6422EE872A000E3E84 /* I18nManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3E981E6322EE872A000E3E84 /* I18nManager.m */; };
+		3EE2C0AC231DE64F00C63789 /* SRXTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EE2C0AB231DE64E00C63789 /* SRXTextViewController.m */; };
 		3EF0776022EA9164009EDDD9 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0775F22EA9164009EDDD9 /* AppDelegate.m */; };
 		3EF0776322EA9164009EDDD9 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3EF0776222EA9164009EDDD9 /* ViewController.m */; };
 		3EF0776622EA9164009EDDD9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3EF0776422EA9164009EDDD9 /* Main.storyboard */; };
@@ -29,6 +30,8 @@
 		3E70604222EF05A100DE5226 /* XWMicroHeader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XWMicroHeader.h; sourceTree = "<group>"; };
 		3E981E6222EE872A000E3E84 /* I18nManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = I18nManager.h; sourceTree = "<group>"; };
 		3E981E6322EE872A000E3E84 /* I18nManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = I18nManager.m; sourceTree = "<group>"; };
+		3EE2C0AA231DE64E00C63789 /* SRXTextViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SRXTextViewController.h; sourceTree = "<group>"; };
+		3EE2C0AB231DE64E00C63789 /* SRXTextViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SRXTextViewController.m; sourceTree = "<group>"; };
 		3EF0775B22EA9164009EDDD9 /* cvteI18n.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = cvteI18n.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EF0775E22EA9164009EDDD9 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		3EF0775F22EA9164009EDDD9 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -63,6 +66,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3EE2C0A9231DE62200C63789 /* i18n */ = {
+			isa = PBXGroup;
+			children = (
+				3EF0776122EA9164009EDDD9 /* ViewController.h */,
+				3EF0776222EA9164009EDDD9 /* ViewController.m */,
+				3EF0778822EAEDE0009EDDD9 /* FirstViewController.h */,
+				3EF0778922EAEDE0009EDDD9 /* FirstViewController.m */,
+				3E70603F22EEDD6100DE5226 /* Page3ViewController.h */,
+				3E70604022EEDD6100DE5226 /* Page3ViewController.m */,
+			);
+			path = i18n;
+			sourceTree = "<group>";
+		};
 		3EF0775222EA9164009EDDD9 = {
 			isa = PBXGroup;
 			children = (
@@ -99,14 +115,11 @@
 		3EF0777522EA9218009EDDD9 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				3EE2C0A9231DE62200C63789 /* i18n */,
 				3EF0775E22EA9164009EDDD9 /* AppDelegate.h */,
 				3EF0775F22EA9164009EDDD9 /* AppDelegate.m */,
-				3EF0776122EA9164009EDDD9 /* ViewController.h */,
-				3EF0776222EA9164009EDDD9 /* ViewController.m */,
-				3EF0778822EAEDE0009EDDD9 /* FirstViewController.h */,
-				3EF0778922EAEDE0009EDDD9 /* FirstViewController.m */,
-				3E70603F22EEDD6100DE5226 /* Page3ViewController.h */,
-				3E70604022EEDD6100DE5226 /* Page3ViewController.m */,
+				3EE2C0AA231DE64E00C63789 /* SRXTextViewController.h */,
+				3EE2C0AB231DE64E00C63789 /* SRXTextViewController.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -218,22 +231,15 @@
 			files = (
 			);
 			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-cvteI18n/Pods-cvteI18n-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/FBRetainCycleDetector/FBRetainCycleDetector.framework",
-				"${BUILT_PRODUCTS_DIR}/MLeaksFinder/MLeaksFinder.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-cvteI18n/Pods-cvteI18n-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FBRetainCycleDetector.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MLeaksFinder.framework",
+				"${PODS_ROOT}/Target Support Files/Pods-cvteI18n/Pods-cvteI18n-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-cvteI18n/Pods-cvteI18n-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-cvteI18n/Pods-cvteI18n-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		BE5C8F58AC20E8F994E7053A /* [CP] Check Pods Manifest.lock */ = {
@@ -269,6 +275,7 @@
 				3EF0776322EA9164009EDDD9 /* ViewController.m in Sources */,
 				3E981E6422EE872A000E3E84 /* I18nManager.m in Sources */,
 				3EF0776E22EA9165009EDDD9 /* main.m in Sources */,
+				3EE2C0AC231DE64F00C63789 /* SRXTextViewController.m in Sources */,
 				3EF0779322EB2209009EDDD9 /* HandleModel.m in Sources */,
 				3EF0779022EB1E2D009EDDD9 /* NSObject+Handle.m in Sources */,
 				3EF0776022EA9164009EDDD9 /* AppDelegate.m in Sources */,
